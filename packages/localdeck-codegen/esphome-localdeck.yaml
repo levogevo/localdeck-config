@@ -633,9 +633,9 @@ script:
           ESP_LOGD("set_led_rgb", "%d, %d, %d", r,g,b);
 
           for (auto *light : App.get_lights()){
-            ESP_LOGV("set_led_rgb", "Checking light %s", light->get_object_id().c_str());
-            if (light->get_object_id().c_str() == entity){
-                ESP_LOGD("set_led_rgb", "Setting light %s", light->get_object_id().c_str());
+            ESP_LOGV("set_led_rgb", "Checking light %s", light->get_name().c_str());
+            if (light->get_name().c_str() == entity){
+                ESP_LOGD("set_led_rgb", "Setting light %s", light->get_name().c_str());
                 auto call = light->make_call();
                 call.set_rgb(r/255, g/255, b/255);
                 call.perform();
